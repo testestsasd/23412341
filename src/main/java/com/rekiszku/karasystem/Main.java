@@ -1,4 +1,4 @@
-package com.twojnick.karasystem;
+package com.rekiszku.karasystem;
 
 import org.bukkit.plugin.java.JavaPlugin;
 
