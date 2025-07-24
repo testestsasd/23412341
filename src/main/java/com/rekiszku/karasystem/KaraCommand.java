@@ -1,5 +1,6 @@
 package com.twojnick.karasystem;
 
+import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -8,9 +9,11 @@ import org.bukkit.entity.Player;
 public class KaraCommand implements CommandExecutor {
 
     private final Main plugin;
+    private final KaraManager karaManager;
 
-    public KaraCommand(Main plugin) {
+    public KaraCommand(Main plugin, KaraManager karaManager) {
         this.plugin = plugin;
+        this.karaManager = karaManager;
     }
 
     @Override
@@ -28,10 +31,14 @@ public class KaraCommand implements CommandExecutor {
         }
 
         String targetName = args[0];
+        Player target = Bukkit.getPlayerExact(targetName);
 
-        // Tu wywołamy GUI z karami (dodam później)
+        if (target == null) {
+            player.sendMessage("Gracz " + targetName + " nie jest online.");
+            return true;
+        }
 
-        player.sendMessage("Otwieram menu kar dla: " + targetName);
+        karaManager.openKaraMenu(player, target);
 
         return true;
     }
