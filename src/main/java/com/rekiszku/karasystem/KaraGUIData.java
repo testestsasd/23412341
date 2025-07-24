@@ -20,5 +20,20 @@ public class KaraGUIData {
 
     public static void removeCurrentTarget(Player punisher) {
         currentTargets.remove(punisher);
+
+private static final Map<Player, String> currentKaras = new HashMap<>();
+
+public static void setCurrentKara(Player punisher, String kara) {
+    currentKaras.put(punisher, kara);
+}
+
+public static String getCurrentKara(Player punisher) {
+    return currentKaras.get(punisher);
+}
+
+public static void removeCurrentKara(Player punisher) {
+    currentKaras.remove(punisher);
+}
+
     }
 }
