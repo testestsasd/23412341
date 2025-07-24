@@ -1,0 +1,13 @@
+name: KaraSystem
+main: com.rekiszku.karasystem.Main
+version: 1.0
+api-version: 1.21
+commands:
+  kara:
+    description: Otwiera menu kar
+    usage: /kara <nick>
+    permission: karasystem.use
+permissions:
+  karasystem.use:
+    description: Pozwala na używanie komendy /kara
+    default: op
